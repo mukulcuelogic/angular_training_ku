@@ -12,11 +12,10 @@ function paginatorService($rootScope) {
         this.itemCount = 0;
         this.displayPagesButton = 5;
 
-        this.setPage = function (page) {
-            if (page > this.pageCount()) {
+        this.setCurrentPage = function (page) {
+            if (page > this.totalPageCount()) {
                 return;
             }
-
             this.page = page;
         };
 
@@ -41,7 +40,7 @@ function paginatorService($rootScope) {
         };
 
         this.lastPage = function () {
-            this.page = this.pageCount() - 1;
+            this.page = this.totalPageCount() - 1;
         };
 
         this.isFirstPage = function () {
@@ -49,27 +48,31 @@ function paginatorService($rootScope) {
         };
 
         this.isLastPage = function () {
-            return this.page == this.pageCount() - 1;
+            return this.page == this.totalPageCount() - 1;
         };
 
-        this.pageCount = function () {
+        this.totalPageCount = function () {
             return Math.ceil(parseInt(this.itemCount) / parseInt(this.rowsPerPage));
         };
         
         this.pageStartFrom = function() { 
-            var pageDifference = this.pageCount() - this.displayPagesButton;
             
-            if (pageDifference < 0) { 
-                return 0; 
+            var startPage = 0;
+            var pageDifference = this.totalPageCount() - this.displayPagesButton;
+            
+            if (pageDifference > 0) { 
+                if (this.page > pageDifference + 1) { 
+                    return pageDifference; 
+                } 
+                startPage = this.page - (Math.ceil(this.displayPagesButton/2) - 1); 
+                if(startPage > 0) {
+                    return startPage;
+                } else {
+                    startPage = 0;
+                }
             }
+            return startPage;
             
-            if (this.page > pageDifference + 1) { 
-                return pageDifference; 
-            } 
-            
-            var low = this.page - (Math.ceil(this.displayPagesButton/2) - 1); 
-            
-            return Math.max(low, 0);
         };
   
 };
