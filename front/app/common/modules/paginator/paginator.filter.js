@@ -14,7 +14,7 @@ angular.module('paginator.filter',[])
            // alert(input.indexOf(parseInt(paginatorService.page * paginatorService.rowsPerPage)));
             var displayData = input.slice(
                     parseInt(paginatorService.page * paginatorService.rowsPerPage), 
-                    parseInt((paginatorService.page + 1) * paginatorService.rowsPerPage + 1) - 1
+                    parseInt((paginatorService.page + 1) * paginatorService.rowsPerPage)
             );
 //            console.log(displayData.length);
             return displayData;
@@ -27,7 +27,6 @@ angular.module('paginator.filter',[])
             for (var i = 0; start < end; start++, i++) {
                 input[i] = start;
             }
-
             return input;
         }
     });
