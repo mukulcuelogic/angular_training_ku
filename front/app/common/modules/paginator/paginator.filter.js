@@ -11,11 +11,13 @@ angular.module('paginator.filter',[])
             }
             
             paginatorService.itemCount = input.length;
-
-            return input.slice(
+           // alert(input.indexOf(parseInt(paginatorService.page * paginatorService.rowsPerPage)));
+            var displayData = input.slice(
                     parseInt(paginatorService.page * paginatorService.rowsPerPage), 
                     parseInt((paginatorService.page + 1) * paginatorService.rowsPerPage + 1) - 1
             );
+//            console.log(displayData.length);
+            return displayData;
         }
     })
     

@@ -19,17 +19,17 @@ function activityController($scope,activityService,$location,DEFAULT_VAL ) {
         $scope.sortorder = $scope.sortOptions[0];  // set default sort order
         
         /*
-        * get all employees 
+        * get all activity 
         */
         $scope.getActivity = function(){
                 activityService.get(function(data){
                 $scope.activities = data;
             });
         };
-        $scope.getActivity(); // get employees data
+        $scope.getActivity(); // get activity data
 
         /*
-         * delete employee
+         * delete activity
          */
         $scope.deleteActivity = function(activityId) {
                 $scope.activities = activityService.deleteActivity($scope.activities , activityId);
