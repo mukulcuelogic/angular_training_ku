@@ -7,7 +7,8 @@ angular.module('webservice.service',[])
  */
 function webserviceService($http) {
 
-    var webServiceUrl = "http://localhost:90/angular_test/back/";   // server URL
+//    var webServiceUrl = "http://localhost:90/angular_test/back/";   // server URL
+    var webServiceUrl = "../back/"; 
     var service = {};
     service.get = get;
     return service;
