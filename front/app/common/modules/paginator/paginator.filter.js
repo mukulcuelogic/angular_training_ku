@@ -21,7 +21,7 @@ angular.module('paginator.filter',[])
         }
     })
     
-    .filter('forLoop', function() {
+    .filter('displayPages', function() {
         return function(input, start, end) {
             input = new Array(end - start);
             for (var i = 0; start < end; start++, i++) {

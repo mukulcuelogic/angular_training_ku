@@ -10,7 +10,7 @@ function paginatorService($rootScope) {
         this.page = 0;
         this.rowsPerPage = 50;
         this.itemCount = 0;
-        this.limitPerPage = 5;
+        this.displayPagesButton = 5;
 
         this.setPage = function (page) {
             if (page > this.pageCount()) {
@@ -56,18 +56,18 @@ function paginatorService($rootScope) {
             return Math.ceil(parseInt(this.itemCount) / parseInt(this.rowsPerPage));
         };
         
-        this.lowerLimit = function() { 
-            var pageCountLimitPerPageDiff = this.pageCount() - this.limitPerPage;
+        this.pageStartFrom = function() { 
+            var pageDifference = this.pageCount() - this.displayPagesButton;
             
-            if (pageCountLimitPerPageDiff < 0) { 
+            if (pageDifference < 0) { 
                 return 0; 
             }
             
-            if (this.page > pageCountLimitPerPageDiff + 1) { 
-                return pageCountLimitPerPageDiff; 
+            if (this.page > pageDifference + 1) { 
+                return pageDifference; 
             } 
             
-            var low = this.page - (Math.ceil(this.limitPerPage/2) - 1); 
+            var low = this.page - (Math.ceil(this.displayPagesButton/2) - 1); 
             
             return Math.max(low, 0);
         };

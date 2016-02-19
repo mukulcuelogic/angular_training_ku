@@ -3,7 +3,7 @@ angular.module('activity.controller',['services','paginator'])
 
 function activityController($scope,activityService,$location,DEFAULT_VAL,paginatorService ) {
     try{
-        paginatorService.page = 0;
+        paginatorService.page = 0;  
         $scope.rowsPerPage = DEFAULT_VAL.RECORDS_PER_PAGE;;
         $scope.activities = [];
 

@@ -1,29 +1,27 @@
-
-    <ul class="pagination" ng-show="paginator.pageCount() > 1" >
-        <li ng-click="paginator.firstPage()" ng-class="paginator.isFirstPage() && 'disabled'">
+ <ul class="pagination" ng-show="pages.pageCount() > 1" >
+        <li ng-click="pages.firstPage()" ng-class="pages.isFirstPage() && 'disabled'">
             <a>
                 <<
             </a>
         </li>
-        <li ng-click="paginator.perviousPage()" ng-class="paginator.isFirstPage() && 'disabled'">
+        <li ng-click="pages.perviousPage()" ng-class="pages.isFirstPage() && 'disabled'">
             <a>
                 <
             </a>
         </li>
-        <li ng-click="paginator.setPage(i)" ng-repeat="i in [] | forLoop:paginator.lowerLimit():paginator.pageCount() | limitTo : paginator.limitPerPage" ng-class="paginator.page==i && 'active'"> 
+        <li ng-click="pages.setPage(i)" ng-repeat="i in [] | displayPages:pages.pageStartFrom():pages.pageCount() | limitTo : pages.displayPagesButton" ng-class="pages.page==i && 'active'"> 
             <a> 
                 <i>{{i+1}}</i> 
             </a> 
         </li>
-        <li ng-click="paginator.nextPage()" ng-class="paginator.isLastPage() && 'disabled'">
+        <li ng-click="pages.nextPage()" ng-class="pages.isLastPage() && 'disabled'">
             <a>
                >
             </a>
         </li>
-        <li ng-click="paginator.lastPage()" ng-class="paginator.isLastPage() && 'disabled'">
+        <li ng-click="pages.lastPage()" ng-class="pages.isLastPage() && 'disabled'">
             <a>
                 >>
             </a>
         </li>
     </ul>
-

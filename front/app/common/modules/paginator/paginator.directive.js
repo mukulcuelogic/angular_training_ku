@@ -5,7 +5,7 @@ angular.module('paginator.directive',[])
         return {
             restrict:'E',
             controller: function ($scope, paginatorService) {
-                $scope.paginator = paginatorService;
+                $scope.pages = paginatorService;
             },
             templateUrl: 'app/common/modules/paginator/view/paginator.html'
         };
