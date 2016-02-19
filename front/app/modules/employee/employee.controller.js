@@ -1,9 +1,10 @@
 angular.module('employee.controller',['services','paginator'])
-      .controller('employeeCtrl',['$scope','employeeService','$location','DEFAULT_VAL',employeeController])
+      .controller('employeeCtrl',['$scope','employeeService','$location','DEFAULT_VAL','paginatorService',employeeController])
 
-function employeeController($scope,employeeService,$location,DEFAULT_VAL) {
+function employeeController($scope,employeeService,$location,DEFAULT_VAL,paginatorService) {
     
     try{
+        paginatorService.page = 0;
         $scope.rowsPerPage = DEFAULT_VAL.RECORDS_PER_PAGE;
         $scope.employees = [];
 

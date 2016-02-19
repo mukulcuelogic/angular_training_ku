@@ -1,9 +1,9 @@
 angular.module('activity.controller',['services','paginator'])
-      .controller('activityCtrl',['$scope','activityService','$location','DEFAULT_VAL',activityController])
+      .controller('activityCtrl',['$scope','activityService','$location','DEFAULT_VAL','paginatorService',activityController])
 
-function activityController($scope,activityService,$location,DEFAULT_VAL ) {
+function activityController($scope,activityService,$location,DEFAULT_VAL,paginatorService ) {
     try{
-        
+        paginatorService.page = 0;
         $scope.rowsPerPage = DEFAULT_VAL.RECORDS_PER_PAGE;;
         $scope.activities = [];
 
